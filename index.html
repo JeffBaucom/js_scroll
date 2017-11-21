@@ -30,6 +30,8 @@
 			el = document.getElementById('magic'),
 			word_counter = 0,
 			character_counter = 0;
+        var colors = ["#FF0000", "#FF4000", "#FF8000", "#FFbf00", "#FFff00", "#bFff00", "#80ff00", "#40ff00", "#00ff00", "#00ff40", "#00ff80", "#00ffbf", "00ffff", "#00bfff", "#0080ff", "#0040ff", "#0000ff", "#4000ff", "#8000ff", "#bf00ff", "#ff00ff", "#ff00bf", "#ff0080", "#ff0040", "#ff0000"];
+        var colorCount = 0;
 
 		function updateText()
 		{
@@ -46,7 +48,16 @@
 					word_counter = 0;
 			}
 		}
+        
+        function updateColor() {
+            el.style.color = colors[colorCount];
+            colorCount++;
+            if (colorCount >= colors.length) {
+                colorCount = 0;   
+            }
+        }
 
+        setInterval(updateColor, 30);
 		setInterval(updateText,300);
 
 	</script>
